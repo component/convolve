@@ -1,0 +1,12 @@
+{
+  "name": "convolve",
+  "repo": "component/convolve",
+  "description": "Canvas convolution filters",
+  "version": "0.0.1",
+  "keywords": ["canvas", "sharpen", "blur", "edges"],
+  "dependencies": {},
+  "development": {},
+  "scripts": [
+    "index.js"
+  ]
+}
