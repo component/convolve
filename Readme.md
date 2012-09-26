@@ -7,13 +7,36 @@
 
 ## API
 
-### convolve(input, result, width, height, matrix)
+### convolve(matrix)
 
-  Apply convolution filter `matrix` to the given `input`, populating `result`.
+  Return a new convolution `Filter` with the given `matrix`.
 
-### convolve.canvas(canvas, matrix)
+### Filter#factor(n)
 
-  Apply the given convolution `matrix` to `canvas` and draw the results to its 2d context.
+  Change the factor to `n`, defaults to `1`.
+
+### Filter#bias(n)
+
+  Change the bias to `n`, defaults to `0`.
+
+### Filter#width(n)
+
+  Canvas width.
+
+### Filter#height(n)
+
+  Canvas height.
+
+### Filter#apply(input, result)
+
+  Apply the convolution filter to the `input` ImageData, populating 
+  the `result` ImageData. This is a lower-level method, you most
+  likely want to apply to the entire canvas, in which case use below:
+
+### Filter#canvas(canvas)
+
+  Apply the convolution filter to the entire `canvas`
+  and immediately draw the results.
 
 ## Example
 
@@ -27,37 +50,41 @@ img.onload = draw;
 img.src = 'maru.jpg';
 
 var sharpen = [
-  [0, -3, 0],
-  [-3, 21, -3],
-  [0, -3, 0]
+  [-1, -1, -1],
+  [-1, 9, -1],
+  [-1, -1, -1]
 ];
 
 var blur = [
-  [1, 1, 1],
-  [1, 1, 1],
-  [1, 1, 1]
+  [0, .2, 0],
+  [.2, .2, .2],
+  [0, .2, 0],
 ];
 
-var emboss = [
-  [-18, -9, 0],
-  [-9, 9, 9],
-  [0, 9, 18]
+// factor 1 / 7
+var motionBlur = [
+  [1, 0, 0, 0, 0, 0, 0],
+  [0, 1, 0, 0, 0, 0, 0],
+  [0, 0, 1, 0, 0, 0, 0],
+  [0, 0, 0, 1, 0, 0, 0],
+  [0, 0, 0, 0, 1, 0, 0],
+  [0, 0, 0, 0, 0, 1, 0],
+  [0, 0, 0, 0, 0, 0, 1]
 ];
 
 var edges = [
-  [0, 9, 0],
-  [9, -36, 9],
-  [0, 9, 0]
+  [0, -1, 0],
+  [-1, 4, -1],
+  [0, -1, 0]
 ];
 
 function draw() {
   canvas.width = img.width;
   canvas.height = img.height;
   ctx.drawImage(img, 0, 0);
-  var data = ctx.getImageData(0, 0, img.width, img.height);
-  var result = ctx.createImageData(img.width, img.height);
-  convolve(data, result, img.width, img.height, edges);
-  ctx.putImageData(result, 0, 0);
+  convolve(motionBlur)
+    .factor(1 / 7)
+    .canvas(canvas);
 }
 ```
 

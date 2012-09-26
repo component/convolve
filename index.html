@@ -12,35 +12,40 @@
       img.src = 'maru.jpg';
 
       var sharpen = [
-        [0, -3, 0],
-        [-3, 21, -3],
-        [0, -3, 0]
+        [-1, -1, -1],
+        [-1, 9, -1],
+        [-1, -1, -1]
       ];
 
       var blur = [
-        [1, 1, 1],
-        [1, 1, 1],
-        [1, 1, 1]
+        [0, .2, 0],
+        [.2, .2, .2],
+        [0, .2, 0],
       ];
 
-      var emboss = [
-        [-18, -9, 0],
-        [-9, 9, 9],
-        [0, 9, 18]
+      // factor 1 / 7
+      var motionBlur = [
+        [1, 0, 0, 0, 0, 0, 0],
+        [0, 1, 0, 0, 0, 0, 0],
+        [0, 0, 1, 0, 0, 0, 0],
+        [0, 0, 0, 1, 0, 0, 0],
+        [0, 0, 0, 0, 1, 0, 0],
+        [0, 0, 0, 0, 0, 1, 0],
+        [0, 0, 0, 0, 0, 0, 1]
       ];
 
       var edges = [
-        [0, 9, 0],
-        [9, -36, 9],
-        [0, 9, 0]
+        [0, -1, 0],
+        [-1, 4, -1],
+        [0, -1, 0]
       ];
 
       function draw() {
         canvas.width = img.width;
         canvas.height = img.height;
         ctx.drawImage(img, 0, 0);
-        convolve.canvas(canvas, edges);
-        convolve.canvas(canvas, blur);
+        convolve(sharpen)
+          .canvas(canvas);
       }
     </script>
   </body>
