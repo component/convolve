@@ -3,7 +3,7 @@
 
   Canvas [convolution](http://en.wikipedia.org/wiki/Convolution) filter.
 
-  ![](http://f.cl.ly/items/3m1B1n241u0O2U3S0N01/Screen%20Shot%202012-09-25%20at%209.39.59%20AM.png)
+  ![](https://s3.amazonaws.com/files.droplr.com/files_production/acc_5213/MQXC?AWSAccessKeyId=AKIAJSVQN3Z4K7MT5U2A&Expires=1348635022&Signature=i14itNXW%2B0GAG8MQfQ38MgEahiQ%3D&response-content-disposition=inline%3B%20filename%2A%3DUTF-8%27%27Screen%2BShot%2B2012-09-25%2Bat%2B8.50.08%2BPM.png)
 
 ## API
 

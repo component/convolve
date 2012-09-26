@@ -44,9 +44,8 @@
         canvas.width = img.width;
         canvas.height = img.height;
         ctx.drawImage(img, 0, 0);
-        convolve(edges)
-          .bias(128)
-          .canvas(canvas);
+        convolve(blur).canvas(canvas);
+        convolve(edges).factor(2).bias(128).canvas(canvas);
       }
     </script>
   </body>
