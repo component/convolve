@@ -1,7 +1,7 @@
 {
   "name": "convolve",
   "description": "Canvas convolution filters",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "keywords": ["canvas", "sharpen", "blur", "edges"],
   "dependencies": {},
   "development": {},
