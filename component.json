@@ -2,7 +2,7 @@
   "name": "convolve",
   "repo": "component/convolve",
   "description": "Canvas convolution filters",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "keywords": ["canvas", "sharpen", "blur", "edges"],
   "dependencies": {},
   "development": {},
