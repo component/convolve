@@ -11,7 +11,7 @@
  * @api public
  */
 
-module.exports = function(input, result, width, height, matrix){
+exports = module.exports = function(input, result, width, height, matrix){
   var data = input.data;
   var out = result.data;
   var w = matrix[0].length;
@@ -40,3 +40,21 @@ module.exports = function(input, result, width, height, matrix){
     }
   }
 };
+
+/**
+ * Apply the given convolution `matrix` to `canvas`.
+ *
+ * @param {Canvas} canvas
+ * @param {Array} matrix
+ * @api public
+ */
+
+exports.canvas = function(canvas, matrix){
+  var w = canvas.width;
+  var h = canvas.height;
+  var ctx = canvas.getContext('2d');
+  var data = ctx.getImageData(0, 0, w, h);
+  var result = ctx.createImageData(w, h);
+  convolve(data, result, w, h, matrix);
+  ctx.putImageData(result, 0, 0);
+}

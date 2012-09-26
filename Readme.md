@@ -11,6 +11,10 @@
 
   Apply convolution filter `matrix` to the given `input`, populating `result`.
 
+### convolve.canvas(canvas, matrix)
+
+  Apply the given convolution `matrix` to `canvas` and draw the results to its 2d context.
+
 ## Example
 
 ```js

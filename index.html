@@ -39,10 +39,8 @@
         canvas.width = img.width;
         canvas.height = img.height;
         ctx.drawImage(img, 0, 0);
-        var data = ctx.getImageData(0, 0, img.width, img.height);
-        var result = ctx.createImageData(img.width, img.height);
-        convolve(data, result, img.width, img.height, edges);
-        ctx.putImageData(result, 0, 0);
+        convolve.canvas(canvas, edges);
+        convolve.canvas(canvas, blur);
       }
     </script>
   </body>
