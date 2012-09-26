@@ -23,6 +23,15 @@
         [0, .2, 0],
       ];
 
+      // factor 1 / 13
+      var blurMore = [
+        [0, 0, 1, 0, 0],
+        [0, 1, 1, 1, 0],
+        [1, 1, 1, 1, 1],
+        [0, 1, 1, 1, 0],
+        [0, 0, 1, 0, 0]
+      ];
+
       // factor 1 / 7
       var motionBlur = [
         [1, 0, 0, 0, 0, 0, 0],
@@ -44,8 +53,9 @@
         canvas.width = img.width;
         canvas.height = img.height;
         ctx.drawImage(img, 0, 0);
-        convolve(blur).canvas(canvas);
-        convolve(edges).factor(2).bias(128).canvas(canvas);
+        convolve(blurMore)
+          .factor(1 / 13)
+          .canvas(canvas);
       }
     </script>
   </body>
