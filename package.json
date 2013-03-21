@@ -3,6 +3,10 @@
   "description": "Canvas convolution filters",
   "version": "0.1.0",
   "keywords": ["canvas", "sharpen", "blur", "edges"],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/component/convolve.git"
+  },
   "dependencies": {},
   "development": {},
   "main": "index.js"
